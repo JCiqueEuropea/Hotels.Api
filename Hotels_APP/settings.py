@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'viewset_tipos_habs',   
+    'viewset_users',    
 ]
 
 MIDDLEWARE = [
@@ -93,7 +94,7 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL = 'viewset_users.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
