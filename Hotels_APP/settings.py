@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'viewset_tipos_habs',   
     'viewset_users',    
     'view_set_habs',
+    'viewset_salas',
 
 ]
 
