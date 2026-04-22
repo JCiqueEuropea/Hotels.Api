@@ -24,4 +24,5 @@ urlpatterns = [
     path('api/', include('view_set_habs.urls')),
     path('api/', include('viewset_salas.urls')),
     path('api/', include('imagenes_habs.urls')),
+    path('api/', include('imagenes_salas.urls')),
 ]
