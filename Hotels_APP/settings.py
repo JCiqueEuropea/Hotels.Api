@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'viewset_tipos_habs',   
     'viewset_users',    
+    'view_set_habs',
+
 ]
 
 MIDDLEWARE = [
