@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'viewset_users',    
     'view_set_habs',
     'viewset_salas',
+    'rest_framework',
+    'imagenes_habs',
 
 ]
 
