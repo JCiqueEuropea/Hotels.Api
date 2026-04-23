@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'imagenes_habs',
     'imagenes_salas',
+    'apiview_reservas',
 
 ]
 

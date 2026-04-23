@@ -10,3 +10,12 @@ class Habitacion(models.Model):
 
     def __str__(self):
         return f'{self.tipo_habitacion} - {self.numero_disponibles} disponibles'
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'precio_noche': str(self.precio_noche),
+            'tipo_habitacion': self.tipo_habitacion.nombre,
+            'capacidad': self.capacidad,
+            'numero_disponibles': self.numero_disponibles,
+        }
