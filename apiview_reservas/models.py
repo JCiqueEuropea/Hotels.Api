@@ -8,6 +8,7 @@ class ReservaHabitacion(models.Model):
     fecha_fin = models.DateField()
     habitacion = models.ForeignKey(Habitacion, on_delete=models.CASCADE)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    confirmed = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Reserva de {self.usuario.username} para la habitación {self.habitacion.numero} desde {self.fecha_inicio} hasta {self.fecha_fin}"
@@ -18,5 +19,6 @@ class ReservaHabitacion(models.Model):
             'fecha_inicio': self.fecha_inicio,
             'fecha_fin': self.fecha_fin,
             'habitacion': self.habitacion.id,
-            'usuario': self.usuario.id
+            'usuario': self.usuario.id,
+            'confirmed': self.confirmed,
         }
