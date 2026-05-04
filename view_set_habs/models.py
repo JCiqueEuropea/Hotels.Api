@@ -1,15 +1,16 @@
 from django.db import models
-from viewset_tipos_habs.models import TipoHabitacion
+
 
 # Create your models here.
 class Habitacion(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField()
     precio_noche = models.DecimalField(max_digits=10, decimal_places=2)
-    tipo_habitacion = models.ForeignKey(TipoHabitacion, on_delete=models.CASCADE)
     capacidad = models.IntegerField()
     numero_disponibles = models.IntegerField()
 
     def __str__(self):
-        return f'{self.tipo_habitacion} - {self.numero_disponibles} disponibles'
+        return f'{self.nombre} - {self.numero_disponibles} disponibles'
     
     def to_dict(self):
         return {
@@ -18,4 +19,6 @@ class Habitacion(models.Model):
             'tipo_habitacion': self.tipo_habitacion.nombre,
             'capacidad': self.capacidad,
             'numero_disponibles': self.numero_disponibles,
+            'nombre': self.nombre,
+            'descripcion': self.descripcion,
         }
