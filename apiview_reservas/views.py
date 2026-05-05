@@ -104,3 +104,35 @@ def confirmar_reserva(request, reserva_id):
     reserva.save()
     
     return JsonResponse(reserva.to_dict(), status=200)
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def confirmar_reserva(request, reserva_id):
+    try:
+        reserva = ReservaHabitacion.objects.get(id=reserva_id)
+    except ReservaHabitacion.DoesNotExist:
+        return JsonResponse({'error': 'Reserva no encontrada'}, status=404)
+    
+    if reserva.confirmed:
+        return JsonResponse({'error': 'La reserva ya está confirmada'}, status=400)
+    
+    reserva.confirmed = True
+    reserva.save()
+    
+    return JsonResponse(reserva.to_dict(), status=200)
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def cancelar_reserva(request, reserva_id):
+    try:
+        reserva = ReservaHabitacion.objects.get(id=reserva_id)
+    except ReservaHabitacion.DoesNotExist:
+        return JsonResponse({'error': 'Reserva no encontrada'}, status=404)
+    
+    if not reserva.confirmed:
+        return JsonResponse({'error': 'La reserva no está confirmada'}, status=400)
+    
+    reserva.confirmed = False
+    reserva.save()
+    
+    return JsonResponse(reserva.to_dict(), status=200)
