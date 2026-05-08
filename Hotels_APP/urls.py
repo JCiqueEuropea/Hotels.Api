@@ -26,4 +26,5 @@ urlpatterns = [
     path('api/', include('imagenes_salas.urls')),
     path('api/', include('apiview_reservas.urls')),
     path('api/', include('viewset_tipos_habs.urls')),
+    path('api/', include('login.urls')),
 ]
