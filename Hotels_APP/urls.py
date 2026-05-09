@@ -27,4 +27,5 @@ urlpatterns = [
     path('api/', include('apiview_reservas.urls')),
     path('api/', include('viewset_tipos_habs.urls')),
     path('api/', include('login.urls')),
+    path('api/', include('apiview_reservas_salas.urls')),
 ]

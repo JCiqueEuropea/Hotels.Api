@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'corsheaders',
     'login',
+    'apiview_reservas_salas',
 
 ]
 
